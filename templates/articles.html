@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>등록된 거래 가능 물품</h1>
+    <a href="{% url 'new' %}">새 글 작성</a>
+
+    <ul>
+        {% for article in articles %}
+            <a href="{% url 'article_detail' article.pk %}">
+                <div>글 번호 : {{ article.id }}</div>
+                <div>물품명 : {{ article.title }}</div>
+                <div>세부 설명 : {{ article.content }}</div>
+                <br>
+            </a>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
